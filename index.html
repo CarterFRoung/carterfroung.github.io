@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
     :root {
       --bg: #0e0e0e;
       --text: #f0ece4;
@@ -15,9 +15,9 @@
       --muted: #555;
       --nav-height: 72px;
     }
- 
+
     html { scroll-behavior: smooth; }
- 
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -25,7 +25,7 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
- 
+
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -38,13 +38,13 @@
       z-index: 100;
       background: transparent;
     }
- 
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 40px;
     }
- 
+
     nav ul li a {
       text-decoration: none;
       color: var(--text);
@@ -55,7 +55,7 @@
       position: relative;
       transition: color 0.2s;
     }
- 
+
     nav ul li a::after {
       content: '';
       position: absolute;
@@ -64,20 +64,21 @@
       background: var(--accent);
       transition: width 0.25s ease;
     }
- 
+
     nav ul li a:hover { color: var(--accent); }
     nav ul li a:hover::after { width: 100%; }
- 
+
     /* ── HERO ── */
     #home {
       height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
     }
- 
+
     #home::before {
       content: '';
       position: absolute;
@@ -88,7 +89,7 @@
       background-size: 60px 60px;
       z-index: 0;
     }
- 
+
     #home::after {
       content: '';
       position: absolute;
@@ -101,7 +102,7 @@
       pointer-events: none;
       z-index: 1;
     }
- 
+
     .hero-name {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(5rem, 14vw, 13rem);
@@ -113,17 +114,13 @@
       z-index: 3;
       isolation: isolate;
     }
- 
+
     .hero-name span {
       display: block;
       color: var(--accent);
     }
- 
+
     .hero-sub {
-      position: absolute;
-      bottom: 48px;
-      left: 43%;
-      transform: translateX(-50%);
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -131,9 +128,10 @@
       animation: fadeUp 1.1s 0.3s ease both;
       z-index: 2;
       white-space: nowrap;
+      margin-top: 260px;
+      position: relative;
     }
- 
- 
+
     /* ── SECTIONS ── */
     section {
       min-height: 100vh;
@@ -142,11 +140,11 @@
       flex-direction: column;
       justify-content: center;
     }
- 
+
     section:not(#home) {
       border-top: 1px solid #1e1e1e;
     }
- 
+
     .section-label {
       font-size: 0.75rem;
       letter-spacing: 0.25em;
@@ -154,14 +152,14 @@
       color: var(--accent);
       margin-bottom: 24px;
     }
- 
+
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 7vw, 6rem);
       line-height: 1;
       margin-bottom: 40px;
     }
- 
+
     .section-body {
       max-width: 600px;
       font-size: 1.05rem;
@@ -169,7 +167,7 @@
       color: #aaa;
       font-weight: 300;
     }
- 
+
     /* ── PORTFOLIO GRID ── */
     .portfolio-grid {
       display: grid;
@@ -177,7 +175,7 @@
       gap: 2px;
       margin-top: 48px;
     }
- 
+
     .portfolio-card {
       aspect-ratio: 4/3;
       background: #161616;
@@ -189,10 +187,10 @@
       cursor: pointer;
       transition: background 0.3s;
     }
- 
+
     .portfolio-card:hover { background: #1c1c1c; }
     .portfolio-card:hover .card-accent { width: 100%; }
- 
+
     .card-accent {
       position: absolute;
       bottom: 0; left: 0;
@@ -201,7 +199,7 @@
       background: var(--accent);
       transition: width 0.4s ease;
     }
- 
+
     .card-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3.5rem;
@@ -209,13 +207,13 @@
       position: absolute;
       top: 16px; right: 20px;
     }
- 
+
     .card-title {
       font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.05em;
     }
- 
+
     .card-tag {
       font-size: 0.72rem;
       color: var(--muted);
@@ -223,7 +221,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
- 
+
     /* ── RESUME ── */
     .resume-block {
       margin-top: 48px;
@@ -232,7 +230,7 @@
       gap: 32px;
       max-width: 700px;
     }
- 
+
     .resume-item {
       display: grid;
       grid-template-columns: 120px 1fr;
@@ -240,32 +238,32 @@
       padding-bottom: 32px;
       border-bottom: 1px solid #1e1e1e;
     }
- 
+
     .resume-year {
       font-size: 0.78rem;
       color: var(--muted);
       letter-spacing: 0.1em;
       padding-top: 4px;
     }
- 
+
     .resume-role {
       font-weight: 500;
       font-size: 1rem;
       margin-bottom: 4px;
     }
- 
+
     .resume-place {
       font-size: 0.85rem;
       color: var(--accent);
       margin-bottom: 8px;
     }
- 
+
     .resume-desc {
       font-size: 0.88rem;
       color: #888;
       line-height: 1.7;
     }
- 
+
     /* ── CONTACT ── */
     .contact-links {
       margin-top: 48px;
@@ -273,7 +271,7 @@
       flex-direction: column;
       gap: 0;
     }
- 
+
     .contact-link {
       display: flex;
       align-items: center;
@@ -287,21 +285,21 @@
       letter-spacing: 0.05em;
       transition: color 0.2s, padding-left 0.25s;
     }
- 
+
     .contact-link:hover {
       color: var(--accent);
       padding-left: 16px;
     }
- 
+
     .contact-link .arrow {
       font-size: 1.2rem;
       transition: transform 0.2s;
     }
- 
+
     .contact-link:hover .arrow {
       transform: translate(4px, -4px);
     }
- 
+
     .resume-logo {
       width: 80px;
       height: 60px;
@@ -311,9 +309,9 @@
       filter: brightness(0.9);
       transition: opacity 0.2s;
     }
- 
+
     .resume-logo:hover { opacity: 0.75; }
- 
+
     .about-img {
       width: 100%;
       max-width: 500px;
@@ -323,26 +321,25 @@
       margin-top: 48px;
       filter: grayscale(20%);
     }
- 
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       nav { padding: 0 24px; }
       nav ul { gap: 24px; }
       section { padding: 100px 24px; }
       .resume-item { grid-template-columns: 1fr; gap: 8px; }
-        .portfolio-card video {
-        display: none;
+      .hero-name { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
- 
+
   <!-- NAV -->
   <nav>
     <ul>
@@ -352,7 +349,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- 
+
   <!-- HERO -->
   <section id="home">
     <h1 class="hero-name">
@@ -361,81 +358,74 @@
     </h1>
     <p class="hero-sub">Scroll to explore</p>
   </section>
- 
+
   <!-- ABOUT -->
   <section id="about">
     <p class="section-label">About Me</p>
     <h2 class="section-title">Who I Am</h2>
-    <p class="section-body">I'm a Network Administration and Cybersecurity student at Mohawk College currently interning in SEO at Stubbe's Precast. I have a background in motion media animation and a passion for anything at the intersection of technology and design. When I'm not in front of a screen I'm probably on the golf course.</p>
+    <p class="section-body">I'm a Network Administration and Cybersecurity student at Mohawk College currently interning in SEO at Stubbe's Precast. I have a background in Motion Media Design and a passion for anything in the middle of technology and design. When I'm not in front of a screen I'm probably on the golf course.</p>
     <img src="megolfing.png" alt="Carter Roung golfing" class="about-img"/>
   </section>
- 
+
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <p class="section-label">Work</p>
     <h2 class="section-title">Portfolio</h2>
     <p class="section-body">A collection of projects I've built, contributed to, or am currently working on. Hover your mouse over the project to see a preview.</p>
     <div class="portfolio-grid">
+
       <div class="portfolio-card"
-                onmouseenter="this.querySelector('video').play()"
-                onmouseleave="this.querySelector('video').pause()">
+        onclick="const v=this.querySelector('video'); v.paused ? v.play() : v.pause();"
+        onmouseenter="this.querySelector('video').play()"
+        onmouseleave="this.querySelector('video').pause()">
         <span class="card-num">01</span>
-        <video
-          src="perpdexwip.mp4"
-          loop
-          muted
-          playsinline
-          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"
-        ></video>
-        <div>
+        <video src="perpdexwip.mp4" loop muted playsinline
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"></video>
+        <div style="position: relative; z-index: 1;">
           <p class="card-title">Perpetual Trading DEX (WIP)</p>
           <p class="card-tag">Rust, Python, Built on Solana</p>
         </div>
         <div class="card-accent"></div>
       </div>
-        <div class="portfolio-card"
-          onmouseenter="this.querySelector('video').play()"
-          onmouseleave="this.querySelector('video').pause()">
+
+      <div class="portfolio-card"
+        onclick="const v=this.querySelector('video'); v.paused ? v.play() : v.pause();"
+        onmouseenter="this.querySelector('video').play()"
+        onmouseleave="this.querySelector('video').pause()">
         <span class="card-num">02</span>
-        <video
-          src="screenrunreport.mp4"
-          loop
-          muted
-          playsinline
-          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"
-        ></video>
+        <video src="screenrunreport.mp4" loop muted playsinline
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"></video>
         <div style="position: relative; z-index: 1;">
           <p class="card-title">Installing Email Server in Microsoft Server</p>
           <p class="card-tag">Microsoft Exchange Server</p>
         </div>
         <div class="card-accent"></div>
-    </div>
+      </div>
+
       <div class="portfolio-card"
-          onmouseenter="this.querySelector('video').play()"
-          onmouseleave="this.querySelector('video').pause()">
+        onclick="const v=this.querySelector('video'); v.paused ? v.play() : v.pause();"
+        onmouseenter="this.querySelector('video').play()"
+        onmouseleave="this.querySelector('video').pause()">
         <span class="card-num">03</span>
-         <video
-          src="videoplayback.mp4"
-          loop
-          muted
-          playsinline
-          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"
-        ></video>
-        <div>
+        <video src="videoplayback.mp4" loop muted playsinline
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;"></video>
+        <div style="position: relative; z-index: 1;">
           <p class="card-title">Motion Media Elden Ring Animation</p>
           <p class="card-tag">Adobe After Effects + Premiere Pro</p>
         </div>
         <div class="card-accent"></div>
       </div>
+
     </div>
   </section>
- 
+
   <!-- RESUME -->
   <section id="resume">
     <p class="section-label">Experience</p>
     <h2 class="section-title">Resume</h2>
- 
+
     <!-- WORK -->
+    <p class="section-label">Work Experience</p>
     <div class="resume-block">
       <div class="resume-item">
         <span class="resume-year">2026 —<br>Present</span>
@@ -471,7 +461,7 @@
         </div>
       </div>
     </div>
- 
+
     <!-- EDUCATION -->
     <p class="section-label" style="margin-top: 64px;">Education</p>
     <div class="resume-block">
@@ -498,9 +488,9 @@
         </div>
       </div>
     </div>
- 
+
   </section>
- 
+
   <!-- CONTACT -->
   <section id="contact">
     <p class="section-label">Get In Touch</p>
@@ -521,82 +511,74 @@
       </a>
     </div>
   </section>
- 
-<script>
-  const hero = document.getElementById('home');
-  const dots = [];
-  const TRAIL_LENGTH = 20;
 
-  // Create trail dots
-  for (let i = 0; i < TRAIL_LENGTH; i++) {
-    const dot = document.createElement('div');
-    dot.style.cssText = `
-      position: absolute;
-      width: ${12 - i * 0.4}px;
-      height: ${12 - i * 0.4}px;
-      background: #c8f04a;
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      z-index: 11;
-      transition: opacity 0.3s ease;
-      box-shadow: 0 0 ${10 - i * 0.3}px #c8f04a;
-    `;
-    hero.appendChild(dot);
-    dots.push({ el: dot, x: 0, y: 0 });
-  }
+  <script>
+    const hero = document.getElementById('home');
+    const dots = [];
+    const TRAIL_LENGTH = 20;
 
-  let mouseX = 0;
-  let mouseY = 0;
-  let isInHero = false;
-
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-
-    // Spotlight
-    hero.style.setProperty('--mouse-x', mouseX + 'px');
-    hero.style.setProperty('--mouse-y', mouseY + 'px');
-  });
-
-  hero.addEventListener('mouseenter', () => {
-    isInHero = true;
-    dots.forEach(d => d.el.style.opacity = '1');
-  });
-
-  hero.addEventListener('mouseleave', () => {
-    isInHero = false;
-    dots.forEach(d => d.el.style.opacity = '0');
-  });
-
-  // Animation loop for smooth trailing
-  function animate() {
-    if (isInHero) {
-      // Lead dot follows mouse
-      dots[0].x += (mouseX - dots[0].x) * 0.3;
-      dots[0].y += (mouseY - dots[0].y) * 0.3;
-
-      // Each dot follows the one in front of it
-      for (let i = 1; i < TRAIL_LENGTH; i++) {
-        dots[i].x += (dots[i - 1].x - dots[i].x) * 0.4;
-        dots[i].y += (dots[i - 1].y - dots[i].y) * 0.4;
-      }
-
-      // Update positions and fade tail
-      dots.forEach((dot, i) => {
-        dot.el.style.left = dot.x + 'px';
-        dot.el.style.top = dot.y + 'px';
-        dot.el.style.opacity = (1 - i / TRAIL_LENGTH) * 0.9 + '';
-      });
+    for (let i = 0; i < TRAIL_LENGTH; i++) {
+      const dot = document.createElement('div');
+      dot.style.cssText = `
+        position: absolute;
+        width: ${12 - i * 0.4}px;
+        height: ${12 - i * 0.4}px;
+        background: #c8f04a;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.3s ease;
+        box-shadow: 0 0 ${10 - i * 0.3}px #c8f04a;
+      `;
+      hero.appendChild(dot);
+      dots.push({ el: dot, x: 0, y: 0 });
     }
 
-    requestAnimationFrame(animate);
-  }
+    let mouseX = 0;
+    let mouseY = 0;
+    let isInHero = false;
 
-  animate();
-</script>
- 
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+      hero.style.setProperty('--mouse-x', mouseX + 'px');
+      hero.style.setProperty('--mouse-y', mouseY + 'px');
+    });
+
+    hero.addEventListener('mouseenter', () => {
+      isInHero = true;
+      dots.forEach(d => d.el.style.opacity = '1');
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      isInHero = false;
+      dots.forEach(d => d.el.style.opacity = '0');
+    });
+
+    function animate() {
+      if (isInHero) {
+        dots[0].x += (mouseX - dots[0].x) * 0.3;
+        dots[0].y += (mouseY - dots[0].y) * 0.3;
+
+        for (let i = 1; i < TRAIL_LENGTH; i++) {
+          dots[i].x += (dots[i - 1].x - dots[i].x) * 0.4;
+          dots[i].y += (dots[i - 1].y - dots[i].y) * 0.4;
+        }
+
+        dots.forEach((dot, i) => {
+          dot.el.style.left = dot.x + 'px';
+          dot.el.style.top = dot.y + 'px';
+          dot.el.style.opacity = (1 - i / TRAIL_LENGTH) * 0.9 + '';
+        });
+      }
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
 </body>
 </html>
